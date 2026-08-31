@@ -31,12 +31,12 @@ export function MagneticLink({
 }: {
   href: string;
   children: ReactNode;
-  className?: string;
-  download?: string;
-  target?: string;
-  rel?: string;
-  onClick?: () => void;
-  ariaLabel?: string;
+  className?: string | undefined;
+  download?: string | undefined;
+  target?: string | undefined;
+  rel?: string | undefined;
+  onClick?: (() => void) | undefined;
+  ariaLabel?: string | undefined;
 }) {
   const { sx, sy, onMove, onLeave } = useMagnet();
   return (
@@ -65,9 +65,9 @@ export function MagneticButton({
   ariaLabel,
 }: {
   children: ReactNode;
-  className?: string;
-  onClick?: () => void;
-  ariaLabel?: string;
+  className?: string | undefined;
+  onClick?: (() => void) | undefined;
+  ariaLabel?: string | undefined;
 }) {
   const { sx, sy, onMove, onLeave } = useMagnet();
   return (
