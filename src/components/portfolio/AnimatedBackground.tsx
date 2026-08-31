@@ -45,19 +45,22 @@ export function AnimatedBackground() {
       }
       for (let i = 0; i < pts.length; i++) {
         for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x;
-          const dy = pts[i].y - pts[j].y;
+          const a = pts[i]!;
+          const b = pts[j]!;
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
           const d2 = dx * dx + dy * dy;
           if (d2 < 19000) {
             ctx.strokeStyle = `rgba(140,154,85,${0.16 * (1 - d2 / 19000)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
-            ctx.moveTo(pts[i].x, pts[i].y);
-            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
             ctx.stroke();
           }
         }
       }
+
       for (const p of pts) {
         ctx.fillStyle = "rgba(160,175,100,0.55)";
         ctx.beginPath();
